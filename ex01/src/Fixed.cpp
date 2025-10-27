@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 18:29:18 by nbodin            #+#    #+#             */
-/*   Updated: 2025/10/27 19:10:39 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/10/27 19:24:27 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,20 @@
 #include <iostream>
 #include <cmath>
 
-Fixed::Fixed() : _value(0) {}
+Fixed::Fixed() : _value(0)
+{
+    std::cout << "default constructor called" << std::endl;
+}
 
-Fixed::Fixed(const int n) : _value(n << _frac_bits) {}
+Fixed::Fixed(const int n) : _value(n << _frac_bits)
+{
+    std::cout << "int constructor called" << std::endl;
+}
 
-Fixed::Fixed(const float n) : _value(roundf(n * (1 << _frac_bits))) {}
+Fixed::Fixed(const float n) : _value(roundf(n * (1 << _frac_bits)))
+{
+    std::cout << "float constructor called" << std::endl;
+}
 
 Fixed::Fixed(const Fixed &obj) : _value(obj._value)
 {
