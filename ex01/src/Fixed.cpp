@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 18:29:18 by nbodin            #+#    #+#             */
-/*   Updated: 2025/10/27 19:24:27 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/10/28 15:06:26 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Fixed::~Fixed()
     std::cout << "destructor called" << std::endl;
 }
 
-Fixed &Fixed::operator=(const Fixed& obj)
+Fixed& Fixed::operator=(const Fixed& obj)
 {
     std::cout << "copy assignement operator called" << std::endl;
     this->_value = obj._value;

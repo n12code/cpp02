@@ -6,12 +6,12 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 18:29:23 by nbodin            #+#    #+#             */
-/*   Updated: 2025/10/27 18:35:13 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/10/28 19:09:37 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/Fixed.hpp"
-# include <iostream>
+#include "../inc/Fixed.hpp"
+#include <iostream>
 
 int main()
 {
@@ -29,5 +29,6 @@ int main()
     std::cout << "b is " << b.toInt() << " as integer" << std::endl;
     std::cout << "c is " << c.toInt() << " as integer" << std::endl;
     std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+    
     return 0;
 }
