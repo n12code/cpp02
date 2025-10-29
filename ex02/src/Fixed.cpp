@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:17:39 by nbodin            #+#    #+#             */
-/*   Updated: 2025/10/28 19:19:07 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/10/29 11:27:20 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,4 +147,32 @@ Fixed  Fixed::operator--(int)
     Fixed   temp(*this);
     --(*this);
     return (temp);
+}
+
+Fixed&  Fixed::min(Fixed& obj1, Fixed& obj2)
+{
+    if (obj1 <= obj2)
+        return (obj1);
+    return (obj2);
+}
+
+const Fixed&  Fixed::min(const Fixed& obj1, const Fixed& obj2)
+{
+    if (obj1 <= obj2)
+        return (obj1);
+    return (obj2);
+}
+
+Fixed&  Fixed::max(Fixed& obj1, Fixed& obj2)
+{
+    if (obj1 >= obj2)
+        return (obj1);
+    return (obj2);
+}
+
+const Fixed&  Fixed::max(const Fixed& obj1, const Fixed&obj2)
+{
+    if (obj1 >= obj2)
+        return (obj1);
+    return (obj2);
 }
