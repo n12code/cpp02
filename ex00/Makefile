@@ -1,6 +1,6 @@
 NAME = fixed
-CXX = g++
-CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 I_FLAGS = -I$(INC_DIR)
 
 OBJ_DIR = obj
