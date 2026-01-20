@@ -6,13 +6,11 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:17:43 by nbodin            #+#    #+#             */
-/*   Updated: 2025/10/29 11:33:45 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2026/01/20 16:26:52 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Fixed.hpp"
-#include <iostream>
-#include "../inc/Fixed.hpp"
+#include "Fixed.hpp"
 #include <iostream>
 
 void testComparisons()

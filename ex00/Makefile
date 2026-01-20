@@ -1,41 +1,43 @@
 NAME = fixed
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-I_FLAGS = -I$(INC_DIR)
+CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98
+I_FLAGS = -I$(INCS_DIR)
 
-OBJ_DIR = obj
-SRC_DIR = src
-INC_DIR = inc
+OBJS_DIR = objs
+SRCS_DIR = srcs
+INCS_DIR = includes
 
 FILES = main Fixed
 
-SRC = $(addprefix $(SRC_DIR)/, $(addsuffix .cpp, $(FILES)))
-OBJ = $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(FILES)))
+SRCS = $(addprefix $(SRCS_DIR)/, $(addsuffix .cpp, $(FILES)))
+OBJS = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(FILES)))
+DEPS := $(OBJS:.o=.d)
 
 HEADERS = Fixed.hpp
-HEADERS := $(addprefix $(INC_DIR)/, $(HEADERS))
-
+HEADERS := $(addprefix $(INCS_DIR)/, $(HEADERS))
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@echo "compiling the binary\n"
-	$(CXX) $(CXXFLAGS) $(I_FLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(OBJS)
+	@echo "\ncompiling the binary"
+	$(CXX) $(CXXFLAGS) $(I_FLAGS) $(OBJS) -o $(NAME)
 	@echo "\nprogram created"
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADERS)
-	@echo "compiling the obj"
-	@mkdir -p $(OBJ_DIR)
-	@$(CXX) $(CXXFLAGS) $(I_FLAGS) -c $< -o $@
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp
+	@echo "\ncompiling the object"
+	@mkdir -p $(OBJS_DIR)
+	$(CXX) $(CXXFLAGS) $(I_FLAGS) -c $< -o $@
 
 clean:
-	@echo "removing obj"
-	@rm -rf $(OBJ_DIR)
+	@echo "\nremoving the objects"
+	rm -rf $(OBJS_DIR)
 
 fclean: clean
-	@echo "removing the binary"
-	@rm -f $(NAME)
+	@echo "\nremoving the binary"
+	rm -f $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re
+
+-include $(DEPS)

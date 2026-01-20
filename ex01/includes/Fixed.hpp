@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 15:48:09 by nbodin            #+#    #+#             */
-/*   Updated: 2025/10/27 18:34:30 by nbodin           ###   ########lyon.fr   */
+/*   Created: 2025/10/24 18:29:21 by nbodin            #+#    #+#             */
+/*   Updated: 2026/01/20 16:37:07 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,17 @@ class Fixed
         static const int    _frac_bits = 8; 
     public:
         Fixed();
+        Fixed(const int);
+        Fixed(const float);
         ~Fixed();
         Fixed(const Fixed &obj);
-        Fixed &operator=(const Fixed& obj);
+        Fixed&  operator=(const Fixed& obj);
         int     getRawBits() const;
         void    setRawBits(int const raw);
+        float   toFloat(void) const;
+        int     toInt(void) const; 
 };
 
+std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 
 #endif
